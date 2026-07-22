@@ -6,3 +6,5 @@ This world also has 7 bosses which roam in their particular habitats. After defe
 As they progress, they can also make pointers about the strengths and weaknesses of different bosses as well as creatures. 
 The game will also contain ancient ruined structures which contain special artifacts the player can use to defeat the bosses; however, the location of the ruins is in a completely different biome than the boss they are meant to be used on. 
 Overall, the game will be about exploration and puzzle solving with the fun of a RPG.
+I am going to try and build the core mechanics like journaling and basic enemy AI first then I will try to improve them using online tutorials. 
+I will be using Aseprite to make the art myself however I might need to import the sounds from a online library. 
