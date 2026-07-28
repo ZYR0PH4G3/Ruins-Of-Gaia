@@ -445,13 +445,27 @@ wait_time = 0.5
 [node name="deal_attack_timer" type="Timer" parent="." unique_id=852109513]
 wait_time = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=303414845]
+[node name="world_camera" type="Camera2D" parent="." unique_id=303414845]
 position = Vector2(60, 39)
 zoom = Vector2(4, 4)
 limit_left = 0
 limit_top = 0
 limit_right = 415
 limit_bottom = 191
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="cliffside_camera" type="Camera2D" parent="." unique_id=334638024]
+position = Vector2(135, 77)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 415
+limit_bottom = 191
+limit_smoothed = true
+rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
