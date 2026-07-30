@@ -21,7 +21,7 @@ Global="*uid://cfgny4ce3736b"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 

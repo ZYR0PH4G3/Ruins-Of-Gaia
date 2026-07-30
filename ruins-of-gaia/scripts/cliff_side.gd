@@ -3,7 +3,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.current_scene = "cliff_side"
+	if Global.current_scene == "bestiary":
+		Global.current_scene = "cliff_side"
+		$player.position.x = Global.saved_player_x
+		$player.position.y = Global.saved_player_y
+	else:
+		Global.current_scene = "cliff_side"
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -3,13 +3,19 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.current_scene = "world"
-	if Global.game_first_loading == true:
-		$player.position.x = Global.player_start_posx
-		$player.position.y = Global.player_start_posy
+	# If returning from the bestiary menu
+	if Global.current_scene == "bestiary":
+		Global.current_scene = "world"
+		$player.position.x = Global.saved_player_x
+		$player.position.y = Global.saved_player_y
 	else:
-		$player.position.x = Global.player_exit_cliffside_posx
-		$player.position.y = Global.player_exit_cliffside_posy
+		Global.current_scene = "world"
+		if Global.game_first_loading == true:
+			$player.position.x = Global.player_start_posx
+			$player.position.y = Global.player_start_posy
+		else:
+			$player.position.x = Global.player_exit_cliffside_posx
+			$player.position.y = Global.player_exit_cliffside_posy
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

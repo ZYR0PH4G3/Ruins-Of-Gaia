@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var monster_name: String = "slime"
+
 var speed = 40
 var player_chase = false
 var player = null
@@ -12,7 +14,7 @@ var can_take_damage = true
 func _physics_process(delta: float) -> void:
 	
 	deal_with_damage()
-	update_heealth()
+	update_health()
 	
 	if player_chase:
 		position += (player.position - position)/speed
@@ -57,6 +59,7 @@ func deal_with_damage():
 			print("Slime health =", health)
 			if health <= 0:
 				print("Slime has died")
+				Global.unlock_monster(monster_name)
 				self.queue_free()
 
 
@@ -65,7 +68,7 @@ func _on_take_damage_cooldown_timeout() -> void:
 
 
 
-func update_heealth():
+func update_health():
 	var healthbar = $healthbar
 	
 	healthbar.value = health

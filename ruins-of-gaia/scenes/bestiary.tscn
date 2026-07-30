@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dfk3teg4cnr2j"]
+
+[ext_resource type="Script" uid="uid://yww3w2txsnwv" path="res://bestiary.gd" id="1_smylb"]
+[ext_resource type="Texture2D" uid="uid://bt51cj5qjnmr0" path="res://art/objects/Beastiary closed.png" id="2_36r6s"]
+[ext_resource type="Script" uid="uid://q7krc5y0tgmf" path="res://scenes/beastiary_closed.gd" id="3_8u4y0"]
+
+[node name="Bestiary" type="Control" unique_id=1562579766]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_smylb")
+
+[node name="Panel" type="Panel" parent="." unique_id=1102543669]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 31.0
+offset_right = 862.0
+offset_bottom = 568.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=2032914876]
+layout_mode = 0
+offset_right = 618.0
+offset_bottom = 538.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1853540333]
+layout_mode = 2
+accessibility_region = true
+alignment = 1
+
+[node name="Slimelabel" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=248438246]
+layout_mode = 2
+text = "Slime:"
+
+[node name="Close" type="Button" parent="." unique_id=63459669]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 41.0
+offset_right = 839.0
+offset_bottom = 72.0
+text = "Close"
+
+[node name="BeastiaryClosed" type="TextureButton" parent="." unique_id=43862764]
+process_mode = 3
+layout_mode = 0
+offset_left = 141.0
+offset_top = 340.0
+offset_right = 141.0
+offset_bottom = 340.0
+texture_normal = ExtResource("2_36r6s")
+script = ExtResource("3_8u4y0")
