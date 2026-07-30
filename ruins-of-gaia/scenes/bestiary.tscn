@@ -1,49 +1,58 @@
 [gd_scene format=3 uid="uid://dfk3teg4cnr2j"]
 
-[ext_resource type="Script" uid="uid://yww3w2txsnwv" path="res://bestiary.gd" id="1_smylb"]
-[ext_resource type="Texture2D" uid="uid://bt51cj5qjnmr0" path="res://art/objects/Beastiary closed.png" id="2_36r6s"]
-[ext_resource type="Script" uid="uid://q7krc5y0tgmf" path="res://scenes/beastiary_closed.gd" id="3_8u4y0"]
+[ext_resource type="Script" uid="uid://bq8fug0ibkgi7" path="res://scripts/bestiary.gd" id="1_j3mqr"]
+[ext_resource type="Texture2D" uid="uid://d2op0r6v88j8b" path="res://art/objects/beastiary_background.png" id="2_2cel7"]
+[ext_resource type="Texture2D" uid="uid://bts51pg71uky6" path="res://art/characters/slime_single.png" id="3_mq4o6"]
+[ext_resource type="Script" uid="uid://dcrlx7gxkkosq" path="res://scripts/close.gd" id="4_ccu45"]
+[ext_resource type="Texture2D" uid="uid://c2ipfe3if56b4" path="res://art/objects/UI_Flat_ButtonCross01a-export.png" id="5_n57n3"]
 
-[node name="Bestiary" type="Control" unique_id=1562579766]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_smylb")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mrxx"]
+size = Vector2(16, 16.25)
 
-[node name="Panel" type="Panel" parent="." unique_id=1102543669]
-layout_mode = 0
-offset_left = 243.0
-offset_top = 31.0
-offset_right = 862.0
-offset_bottom = 568.0
+[node name="Bestiary" type="Node2D" unique_id=1800098623]
+script = ExtResource("1_j3mqr")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=2032914876]
-layout_mode = 0
-offset_right = 618.0
-offset_bottom = 538.0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1446036154]
+position = Vector2(572, 353)
+texture = ExtResource("2_2cel7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=1853540333]
-layout_mode = 2
-accessibility_region = true
-alignment = 1
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1980883048]
+clip_contents = false
+offset_left = 409.0
+offset_top = 244.0
+offset_right = 1056.0
+offset_bottom = 284.0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 32
+text = "A soft and harmless creature"
+scroll_active = false
 
-[node name="Slimelabel" type="Label" parent="Panel/ScrollContainer/VBoxContainer" unique_id=248438246]
-layout_mode = 2
-text = "Slime:"
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=343361445]
+position = Vector2(203, 244)
+scale = Vector2(6.750001, 6.8125)
+texture = ExtResource("3_mq4o6")
 
-[node name="Close" type="Button" parent="." unique_id=63459669]
-layout_mode = 0
-offset_left = 789.0
-offset_top = 41.0
-offset_right = 839.0
-offset_bottom = 72.0
-text = "Close"
+[node name="Area2D" type="Area2D" parent="." unique_id=485946813]
+position = Vector2(56, 92)
+script = ExtResource("4_ccu45")
 
-[node name="BeastiaryClosed" type="TextureButton" parent="." unique_id=43862764]
-process_mode = 3
-layout_mode = 0
-offset_left = 141.0
-offset_top = 340.0
-offset_right = 141.0
-offset_bottom = 340.0
-texture_normal = ExtResource("2_36r6s")
-script = ExtResource("3_8u4y0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=178967651]
+position = Vector2(9, 7.875)
+shape = SubResource("RectangleShape2D_4mrxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1686594264]
+position = Vector2(12, 11)
+scale = Vector2(2.3125, 2.3125)
+texture = ExtResource("5_n57n3")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=675981151]
+clip_contents = false
+offset_left = 445.0
+offset_top = 18.0
+offset_right = 805.0
+offset_bottom = 58.0
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/normal_font_size = 43
+text = "Bestiary
+"
+scroll_active = false

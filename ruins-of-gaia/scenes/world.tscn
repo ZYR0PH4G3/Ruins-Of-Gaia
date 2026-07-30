@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://48w8qj20udg8" path="res://scenes/player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://dbpbkwncplww5" path="res://scenes/enemy.tscn" id="5_71j4m"]
 [ext_resource type="Texture2D" uid="uid://bt51cj5qjnmr0" path="res://art/objects/Beastiary closed.png" id="7_4mrxx"]
-[ext_resource type="Script" uid="uid://jd3m3c3o1nnh" path="res://scenes/area_2d.gd" id="7_7r4gi"]
+[ext_resource type="Script" uid="uid://jd3m3c3o1nnh" path="res://scripts/beastiary_icon.gd" id="7_7r4gi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("1_4wyf3")
