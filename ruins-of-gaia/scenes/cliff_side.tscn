@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsihmsi5mny4h"]
 
 [ext_resource type="Texture2D" uid="uid://dn10u03amqbpx" path="res://art/objects/objects.png" id="1_e10jm"]
-[ext_resource type="Script" uid="uid://c52gdacw5fm0l" path="res://scenes/cliff_side.gd" id="1_v3mbj"]
+[ext_resource type="Script" uid="uid://c52gdacw5fm0l" path="res://scripts/cliff_side.gd" id="1_v3mbj"]
 [ext_resource type="Texture2D" uid="uid://bbmvadi6sx5r1" path="res://art/tilesets/plains.png" id="2_jcley"]
 [ext_resource type="Texture2D" uid="uid://ckjf3gevviouc" path="res://art/tilesets/grass.png" id="3_v3mbj"]
 [ext_resource type="PackedScene" uid="uid://48w8qj20udg8" path="res://scenes/player.tscn" id="4_jcley"]
@@ -61,7 +61,7 @@ sources/1 = SubResource("TileSetAtlasSource_0riok")
 sources/2 = SubResource("TileSetAtlasSource_ygqrx")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nfwx"]
-size = Vector2(41, 19)
+size = Vector2(41, 28)
 
 [node name="cliff_side" type="Node2D" unique_id=373276167]
 script = ExtResource("1_v3mbj")
@@ -86,8 +86,9 @@ position = Vector2(87, 136)
 [node name="Area2D" type="Area2D" parent="." unique_id=237423376]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=586895700]
-position = Vector2(86.5, 158.5)
+position = Vector2(86.5, 154)
 shape = SubResource("RectangleShape2D_3nfwx")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

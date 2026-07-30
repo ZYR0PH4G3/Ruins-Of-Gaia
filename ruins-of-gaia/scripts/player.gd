@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	player_movement(delta)
 	enemy_attack()
 	attack()
+	_update_health()
 	
 	if health <= 0:
 		player_alive = false #add end screen or like respawn
@@ -144,3 +145,24 @@ func current_camera():
 	elif Global.current_scene == "cliff_side":
 		$world_camera.enabled = false
 		$cliffside_camera.enabled = true
+
+
+func _update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+
+
+
+
+func _on_regen_timer_timeout() -> void:
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0
