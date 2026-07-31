@@ -1,9 +1,8 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# If returning from the bestiary menu
+	
 	if Global.current_scene == "bestiary":
 		Global.current_scene = "world"
 		$player.position.x = Global.saved_player_x
@@ -18,7 +17,6 @@ func _ready() -> void:
 			$player.position.y = Global.player_exit_cliffside_posy
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	change_scene()
 

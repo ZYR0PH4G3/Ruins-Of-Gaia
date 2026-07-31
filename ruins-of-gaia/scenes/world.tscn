@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://48w8qj20udg8" path="res://scenes/player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://dbpbkwncplww5" path="res://scenes/enemy.tscn" id="5_71j4m"]
 [ext_resource type="Texture2D" uid="uid://bt51cj5qjnmr0" path="res://art/objects/Beastiary closed.png" id="7_4mrxx"]
-[ext_resource type="Script" uid="uid://jd3m3c3o1nnh" path="res://scripts/beastiary_icon.gd" id="7_7r4gi"]
+[ext_resource type="Script" uid="uid://jd3m3c3o1nnh" path="res://scenes/area_2d.gd" id="7_7r4gi"]
+[ext_resource type="PackedScene" uid="uid://dfk3teg4cnr2j" path="res://scenes/bestiary.tscn" id="9_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://c2ipfe3if56b4" path="res://art/objects/UI_Flat_ButtonCross01a-export.png" id="10_w7kh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("1_4wyf3")
@@ -88,6 +90,8 @@ size = Vector2(55, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vclpj"]
 size = Vector2(25, 28)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocnw0"]
+
 [node name="world" type="Node2D" unique_id=1778757645]
 y_sort_enabled = true
 script = ExtResource("1_qfnet")
@@ -123,21 +127,44 @@ shape = SubResource("RectangleShape2D_3nfwx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=236540373]
 
-[node name="Area2D" type="Area2D" parent="CanvasLayer" unique_id=723926214]
+[node name="Bestiary" type="Area2D" parent="CanvasLayer" unique_id=723926214]
 position = Vector2(1051, 563)
 scale = Vector2(2, 2)
 script = ExtResource("7_7r4gi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Area2D" unique_id=2108856563]
-position = Vector2(36.5, 27)
-shape = SubResource("RectangleShape2D_vclpj")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Area2D" unique_id=1156120728]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Bestiary" unique_id=1156120728]
 offset_left = 5.0
 offset_top = -4.0
 offset_right = 69.0
 offset_bottom = 60.0
 texture = ExtResource("7_4mrxx")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Bestiary" unique_id=2108856563]
+position = Vector2(36.5, 27)
+shape = SubResource("RectangleShape2D_vclpj")
+
+[node name="BestiarySelection" parent="CanvasLayer/Bestiary" unique_id=345964307 instance=ExtResource("9_7r4gi")]
+visible = false
+
+[node name="Button" type="Button" parent="CanvasLayer/Bestiary/BestiarySelection" unique_id=1415777269]
+offset_left = 26.0
+offset_top = 57.0
+offset_right = 51.0
+offset_bottom = 81.0
+icon = ExtResource("10_w7kh3")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=546244057]
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer2" unique_id=161412645]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer2/Area2D" unique_id=1009783402]
+position = Vector2(1066, 627)
+shape = SubResource("RectangleShape2D_ocnw0")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/Area2D" unique_id=1994304058]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="body_entered" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_entered"]
 [connection signal="body_exited" from="cliffside_transition_point" to="." method="_on_cliffside_transition_point_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Bestiary/BestiarySelection/Button" to="CanvasLayer/Bestiary" method="_on_button_pressed"]

@@ -1,58 +1,64 @@
 [gd_scene format=3 uid="uid://dfk3teg4cnr2j"]
 
-[ext_resource type="Script" uid="uid://bq8fug0ibkgi7" path="res://scripts/bestiary.gd" id="1_j3mqr"]
+[ext_resource type="Script" uid="uid://bq8fug0ibkgi7" path="res://scripts/bestiary.gd" id="1_8u4y0"]
 [ext_resource type="Texture2D" uid="uid://d2op0r6v88j8b" path="res://art/objects/beastiary_background.png" id="2_2cel7"]
 [ext_resource type="Texture2D" uid="uid://bts51pg71uky6" path="res://art/characters/slime_single.png" id="3_mq4o6"]
-[ext_resource type="Script" uid="uid://dcrlx7gxkkosq" path="res://scripts/close.gd" id="4_ccu45"]
+[ext_resource type="PackedScene" uid="uid://8lw85mr72rg5" path="res://scenes/slime_bestiary.tscn" id="4_j3mqr"]
 [ext_resource type="Texture2D" uid="uid://c2ipfe3if56b4" path="res://art/objects/UI_Flat_ButtonCross01a-export.png" id="5_n57n3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mrxx"]
-size = Vector2(16, 16.25)
+[node name="BestiarySelection" type="CanvasLayer" unique_id=345964307]
+script = ExtResource("1_8u4y0")
 
-[node name="Bestiary" type="Node2D" unique_id=1800098623]
-script = ExtResource("1_j3mqr")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1446036154]
-position = Vector2(572, 353)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2106963463]
+offset_left = -34.0
+offset_top = -1.0
+offset_right = 1187.0
+offset_bottom = 708.0
 texture = ExtResource("2_2cel7")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1980883048]
-clip_contents = false
-offset_left = 409.0
-offset_top = 244.0
-offset_right = 1056.0
-offset_bottom = 284.0
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/normal_font_size = 32
-text = "A soft and harmless creature"
-scroll_active = false
+[node name="Area2D" type="Button" parent="." unique_id=1286503946]
+offset_left = 71.0
+offset_top = 117.0
+offset_right = 299.0
+offset_bottom = 348.0
+flat = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=343361445]
-position = Vector2(203, 244)
-scale = Vector2(6.750001, 6.8125)
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=538166689]
+position = Vector2(112, 117)
+scale = Vector2(7.4375005, 7.6875)
 texture = ExtResource("3_mq4o6")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=485946813]
-position = Vector2(56, 92)
-script = ExtResource("4_ccu45")
+[node name="Slime_Bestiary" parent="." unique_id=1906858695 instance=ExtResource("4_j3mqr")]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=178967651]
-position = Vector2(9, 7.875)
-shape = SubResource("RectangleShape2D_4mrxx")
+[node name="Button" type="Button" parent="Slime_Bestiary" unique_id=536340547]
+offset_left = 72.0
+offset_top = 59.0
+offset_right = 97.0
+offset_bottom = 83.0
+icon = ExtResource("5_n57n3")
+flat = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1686594264]
-position = Vector2(12, 11)
-scale = Vector2(2.3125, 2.3125)
-texture = ExtResource("5_n57n3")
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=675981151]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=921674492]
 clip_contents = false
-offset_left = 445.0
-offset_top = 18.0
-offset_right = 805.0
-offset_bottom = 58.0
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/normal_font_size = 43
-text = "Bestiary
-"
+offset_left = 682.0
+offset_right = 956.0
+offset_bottom = 40.0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 31
+text = "Monster Log"
 scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=684795787]
+clip_contents = false
+offset_left = 146.0
+offset_top = 368.0
+offset_right = 240.0
+offset_bottom = 408.0
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 31
+text = "Slime"
+scroll_active = false
+
+[connection signal="pressed" from="Area2D" to="." method="_on_area_2d_pressed"]
+[connection signal="pressed" from="Slime_Bestiary/Button" to="." method="_on_button_pressed"]

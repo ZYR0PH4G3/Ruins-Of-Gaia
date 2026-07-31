@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://8lw85mr72rg5"]
+
+[ext_resource type="Texture2D" uid="uid://d2op0r6v88j8b" path="res://art/objects/beastiary_background.png" id="1_7k3jh"]
+[ext_resource type="Texture2D" uid="uid://bts51pg71uky6" path="res://art/characters/slime_single.png" id="2_cioke"]
+
+[node name="Slime_Bestiary" type="Node2D" unique_id=1906858695]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=269847350]
+offset_left = -35.0
+offset_right = 1187.0
+offset_bottom = 706.0
+texture = ExtResource("1_7k3jh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=771130147]
+position = Vector2(182.99998, 235)
+scale = Vector2(7.65625, 7.84375)
+texture = ExtResource("2_cioke")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2051495179]
+clip_contents = false
+offset_left = 409.0
+offset_top = 172.0
+offset_right = 1128.0
+offset_bottom = 281.0
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/normal_font_size = 31
+text = "A harmless squishy puddle of goo, often encountered by adventurers"

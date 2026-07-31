@@ -11,6 +11,7 @@ var player_inattack_zone = false
 
 var can_take_damage = true
 
+
 func _physics_process(delta: float) -> void:
 	
 	deal_with_damage()
@@ -58,9 +59,8 @@ func deal_with_damage():
 			can_take_damage = false
 			print("Slime health =", health)
 			if health <= 0:
-				print("Slime has died")
-				Global.unlock_monster(monster_name)
-				self.queue_free()
+				queue_free()
+
 
 
 func _on_take_damage_cooldown_timeout() -> void:
